@@ -1,0 +1,38 @@
+@use "../../styles/variables/index.scss" as *;
+
+.legend {
+  padding: 18px;
+  border-radius: 8px;
+  background-color: $gray100;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    strong {
+      display: block;
+      font-family: "gotham-black";
+      color: $gray800;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.caption__images {
+  display: flex;
+  gap: 10px;
+
+  li img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 8px;
+  }
+
+  li span {
+    font-family: "gotham-book";
+  }
+}

@@ -1,0 +1,64 @@
+@use "../../styles/variables/index.scss" as *;
+
+.unit {
+  width: 309px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: $gray100;
+  box-shadow: 0 0 4px $gray300;
+
+  strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-family: "gotham-bold";
+  }
+
+  h3 {
+    color: $gray800;
+    font-family: "gotham-black";
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  > span {
+    display: block;
+    padding-bottom: 16px;
+    border-bottom: 2px solid $gray300;
+    color: $gray500;
+    font-family: "gotham-light";
+    margin-bottom: 20px;
+  }
+}
+
+.image__list {
+  display: flex;
+  margin-bottom: 32px;
+
+  li img {
+    width: 71px;
+  }
+}
+
+.schedule__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li {
+    width: 132px;
+    margin-bottom: 24px;
+
+    strong {
+      color: $gray800;
+      font-family: "gotham-black";
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    span {
+      color: $gray800;
+      font-family: "gotham-book";
+    }
+  }
+}

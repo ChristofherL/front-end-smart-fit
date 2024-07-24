@@ -1,0 +1,17 @@
+@use "../../styles/variables/index.scss" as *;
+
+.button {
+  padding: 16px;
+  border-radius: 4px;
+  font-family: "gotham-black";
+  color: $dark;
+}
+
+.primary__button {
+  background-color: $amber500;
+}
+
+.secondary__button {
+  border: 1px solid $gray500;
+  background-color: transparent;
+}

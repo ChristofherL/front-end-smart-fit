@@ -1,0 +1,49 @@
+@use "../../styles/variables/index.scss" as *;
+
+.period {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 14px;
+  border-bottom: 2px solid $gray200;
+  cursor: pointer;
+
+  input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid $gray500;
+    transition: background-color 0.2s ease-out;
+    position: relative;
+
+    &:checked {
+      background-color: $gray800;
+      border: 2px solid $gray800;
+    }
+
+    &:checked::after {
+      content: "";
+      width: 8px;
+      height: 5px;
+      border-left: 2px solid white;
+      border-bottom: 2px solid white;
+      position: absolute;
+      transform: rotate(-50deg);
+      top: 20%;
+      left: 15%;
+    }
+  }
+
+  > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      color: $gray500;
+      font-family: "gotham-book";
+    }
+  }
+}
