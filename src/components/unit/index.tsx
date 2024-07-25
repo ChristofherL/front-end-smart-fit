@@ -1,42 +1,38 @@
 import styles from "./styles.module.scss";
-import forbidenLockerroom from "../../assets/images/forbidden-lockerroom.png";
-import partialFountain from "../../assets/images/partial-fountain.png";
-import requiredTowel from "../../assets/images/required-towel.png";
-import requiredMask from "../../assets/images/required-mask.png";
+import { Location } from "../../interfaces/Location";
 
-export function Unit() {
+interface UnitProps extends Location {}
+
+export function Unit({
+  title,
+  opened,
+  content,
+  mask,
+  towel,
+  fountain,
+  locker_room,
+  schedules,
+}: UnitProps) {
   return (
     <li className={styles.unit}>
-      <strong>Aberto</strong>
-      <h3>Vicente Linhares</h3>
-      <span>Rua Tibúrcio Cavalcante, 1885 - Meireles Fortaleza, CE</span>
-      <ul className={styles.image__list}>
-        <li>
-          <img src={requiredMask} />
-        </li>
-        <li>
-          <img src={requiredTowel} />
-        </li>
-        <li>
-          <img src={partialFountain} />
-        </li>
-        <li>
-          <img src={forbidenLockerroom} />
-        </li>
-      </ul>
+      <strong className={`${opened ? styles.open__unit : styles.closed__unit}`}>
+        {opened ? "Aberta" : "Fechada"}
+      </strong>
+      <h3>{title}</h3>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div className={styles.image__list}>
+        <img src={`/images/${mask}-mask.png`} />
+        <img src={`/images/${towel}-towel.png`} />
+        <img src={`/images/${fountain}-fountain.png`} />
+        <img src={`/images/${locker_room}-lockerroom.png`} />
+      </div>
       <ul className={styles.schedule__list}>
-        <li>
-          <strong>Seg. à Sex.</strong>
-          <span>06h às 22h</span>
-        </li>
-        <li>
-          <strong>Sab.</strong>
-          <span>09h às 18h</span>
-        </li>
-        <li>
-          <strong>Dom.</strong>
-          <span>Fechada</span>
-        </li>
+        {schedules?.map((schedule, index) => (
+          <li key={index}>
+            <strong>{schedule.weekdays}</strong>
+            <span>{schedule.hour}</span>
+          </li>
+        ))}
       </ul>
     </li>
   );

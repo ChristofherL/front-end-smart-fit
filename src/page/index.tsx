@@ -1,13 +1,24 @@
 import styles from "./styles.module.scss";
-import logo from "../assets/images/logo.svg";
 import { Form, Legend, Unit } from "../components";
+import { useEffect, useState } from "react";
+import { Location } from "../interfaces/Location";
+import { smartFitService } from "../service/SmartFitService";
 
 export function Page() {
+  const [units, setUnits] = useState<Location[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const allLocations = await smartFitService.getUnits();
+      setUnits(allLocations);
+    })();
+  }, []);
+
   return (
     <main className={styles.main__container}>
       <header className={styles.header}>
         <img
-          src={logo}
+          src="/images/logo.svg"
           alt="smart fit logo"
         />
       </header>
@@ -22,15 +33,18 @@ export function Page() {
           <Form />
           <Legend />
           <ul className={styles.unit__listing}>
-            <Unit />
-            <Unit />
-            <Unit />
+            {units.map((unit) => (
+              <Unit
+                key={unit.id}
+                {...unit}
+              />
+            ))}
           </ul>
         </div>
       </div>
       <footer className={styles.footer}>
         <img
-          src={logo}
+          src="/images/logo.svg"
           alt="smart fit logo"
         />
         <span>Todos os direitos reservados - 2020</span>

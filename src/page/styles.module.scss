@@ -7,7 +7,7 @@
 
 .header {
   height: 125px;
-  background-color: #000000;
+  background-color: $dark;
   display: flex;
   justify-content: center;
   margin-bottom: 75px;
@@ -27,7 +27,7 @@
 
     h1 {
       width: 200px;
-      color: $darkGrey;
+      color: $gray800;
       font-family: "gotham-black";
       position: relative;
       margin-bottom: 65px;
@@ -36,7 +36,7 @@
         content: "";
         width: 75px;
         height: 10px;
-        background-color: $darkGrey;
+        background-color: $gray800;
         position: absolute;
         bottom: -25px;
         left: 0;
@@ -45,7 +45,7 @@
 
     p {
       font-family: "gotham-book";
-      color: $darkGrey;
+      color: $gray800;
       margin-bottom: 32px;
     }
   }
@@ -59,7 +59,7 @@
 
 .footer {
   height: 250px;
-  background-color: $darkGrey;
+  background-color: $gray800;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,6 +71,6 @@
   }
 
   span {
-    color: white;
+    color: $white;
   }
 }

@@ -1,4 +1,3 @@
-import clock from "../../assets/images/icon-hour.png";
 import { Button } from "../button";
 import { Period } from "../period";
 import styles from "./styles.module.scss";
@@ -23,7 +22,7 @@ export function Form() {
     <form className={styles.form}>
       <div>
         <img
-          src={clock}
+          src="../public/images/icon-hour.png"
           alt="clock"
         />
         <span>Horário</span>

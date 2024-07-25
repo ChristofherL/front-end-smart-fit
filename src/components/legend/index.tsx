@@ -1,13 +1,3 @@
-import requiredTowel from "../../assets/images/required-towel.png";
-import recommendedTowel from "../../assets/images/recommended-towel.png";
-import requiredMask from "../../assets/images/required-mask.png";
-import recommendedMask from "../../assets/images/recommended-mask.png";
-import partialFountain from "../../assets/images/partial-fountain.png";
-import prohibitedDrinkingFountain from "../../assets/images/forbidden-fountain.png";
-import requiredLockerroom from "../../assets/images/required-lockerroom.png";
-import partialLockerroom from "../../assets/images/partial-lockerroom.png";
-import forbidenLockerroom from "../../assets/images/forbidden-lockerroom.png";
-
 import styles from "./styles.module.scss";
 
 const legendItems = [
@@ -15,11 +5,11 @@ const legendItems = [
     name: "Mascara",
     icons: [
       {
-        icon: requiredMask,
+        icon: "/images/required-mask.png",
         description: "Obridatório",
       },
       {
-        icon: recommendedMask,
+        icon: "/images/recommended-mask.png",
         description: "Recomendado",
       },
     ],
@@ -28,11 +18,11 @@ const legendItems = [
     name: "Toalha",
     icons: [
       {
-        icon: requiredTowel,
+        icon: "/images/required-towel.png",
         description: "Obridatório",
       },
       {
-        icon: recommendedTowel,
+        icon: "/images/recommended-towel.png",
         description: "Recomendado",
       },
     ],
@@ -41,28 +31,28 @@ const legendItems = [
     name: "Bebedouro",
     icons: [
       {
-        icon: partialFountain,
+        icon: "/images/partial-fountain.png",
         description: "Parcial",
       },
       {
-        icon: prohibitedDrinkingFountain,
+        icon: "/images/not_allowed-fountain.png",
         description: "Proibido",
       },
     ],
   },
   {
-    name: "Bebedouro",
+    name: "Vestiários",
     icons: [
       {
-        icon: requiredLockerroom,
+        icon: "/images/allowed-lockerroom.png",
         description: "Liberado",
       },
       {
-        icon: partialLockerroom,
+        icon: "/images/partial-lockerroom.png",
         description: "Parcial",
       },
       {
-        icon: forbidenLockerroom,
+        icon: "/images/closed-lockerroom.png",
         description: "Fechado",
       },
     ],

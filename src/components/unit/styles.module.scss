@@ -12,6 +12,14 @@
     margin-bottom: 12px;
     font-size: 14px;
     font-family: "gotham-bold";
+
+    &.open__unit {
+      color: $lime600;
+    }
+
+    &.closed__unit {
+      color: $red700;
+    }
   }
 
   h3 {
@@ -21,7 +29,7 @@
     margin-bottom: 20px;
   }
 
-  > span {
+  p {
     display: block;
     padding-bottom: 16px;
     border-bottom: 2px solid $gray300;
@@ -35,7 +43,7 @@
   display: flex;
   margin-bottom: 32px;
 
-  li img {
+  img {
     width: 71px;
   }
 }
