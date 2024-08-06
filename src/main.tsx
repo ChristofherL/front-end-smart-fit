@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Page } from "./page";
+import { Page } from "./pages";
 import "./styles/global.scss";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

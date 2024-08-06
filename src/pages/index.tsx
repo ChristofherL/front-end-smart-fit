@@ -1,18 +1,9 @@
 import styles from "./styles.module.scss";
-import { Form, Legend, Unit } from "../components";
-import { useEffect, useState } from "react";
-import { Location } from "../interfaces/Location";
-import { smartFitService } from "../service/SmartFitService";
+import { Form, Legend, ListOfUnits } from "../components";
+import { useLocations } from "../hooks/useLocations";
 
 export function Page() {
-  const [units, setUnits] = useState<Location[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const allLocations = await smartFitService.getUnits();
-      setUnits(allLocations);
-    })();
-  }, []);
+  const { locations, resultsFound, handleClickToMeet, handleClickClear } = useLocations();
 
   return (
     <main className={styles.main__container}>
@@ -30,16 +21,13 @@ export function Page() {
             município. Por isso, confira aqui se a sua unidade está aberta e as medidas de segurança
             que estamos seguindo.
           </p>
-          <Form />
+          <Form
+            resultsFound={resultsFound}
+            handleClickClear={handleClickClear}
+            handleClickToMeet={handleClickToMeet}
+          />
           <Legend />
-          <ul className={styles.unit__listing}>
-            {units.map((unit) => (
-              <Unit
-                key={unit.id}
-                {...unit}
-              />
-            ))}
-          </ul>
+          <ListOfUnits locations={locations} />
         </div>
       </div>
       <footer className={styles.footer}>
