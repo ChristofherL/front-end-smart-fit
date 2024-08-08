@@ -1,9 +1,18 @@
 import styles from "./styles.module.scss";
-import { Form, Legend, ListOfUnits } from "../components";
-import { useLocations } from "../hooks/useLocations";
+import { Form, Legend, LocationsList } from "../../components";
+import { useLocations } from "../../hooks/useLocations";
+import { filterLocations } from "../../utils/filterLocations";
+import { extractHourFromString } from "../../utils/extractHourFromString";
 
-export function Page() {
-  const { locations, resultsFound, handleClickToMeet, handleClickClear } = useLocations();
+export function Home() {
+  const { locations, resultsFound, handleClickToMeet, handleClickClear, period } = useLocations();
+
+  const filteredLocations = filterLocations(locations, {
+    init: extractHourFromString(period, 0),
+    end: extractHourFromString(period, 1),
+  });
+
+  console.log(period, filteredLocations, locations.length);
 
   return (
     <main className={styles.main__container}>
@@ -15,7 +24,7 @@ export function Page() {
       </header>
       <div className={styles.main__content__container}>
         <div>
-          <h1>REABERTURA SMART FIT</h1>
+          <h1>REABERTURA SMART</h1>
           <p>
             O horário de funcionamento das nossas unidades está seguindo os decretos de cada
             município. Por isso, confira aqui se a sua unidade está aberta e as medidas de segurança
@@ -27,7 +36,7 @@ export function Page() {
             handleClickToMeet={handleClickToMeet}
           />
           <Legend />
-          <ListOfUnits locations={locations} />
+          <LocationsList locations={filteredLocations} />
         </div>
       </div>
       <footer className={styles.footer}>

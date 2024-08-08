@@ -2,7 +2,6 @@ import { Location } from "../interfaces/Location";
 import { Period } from "../interfaces/Period";
 import { extractHourFromString } from "./extractHourFromString";
 
-
 export function filterLocations(locations: Location[], period: Period) {
   const results: Location[] = [];
 

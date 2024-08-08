@@ -1,4 +1,4 @@
-@use "../../styles/variables/index.scss" as *;
+@use "../../../styles/variables/index.scss" as *;
 
 .form {
   padding: 18px;
@@ -51,34 +51,6 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
-
-    input {
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      border: 2px solid $gray500;
-      transition: background-color 0.2s ease-out;
-      position: relative;
-      cursor: pointer;
-      border-radius: 2px;
-
-      &:checked {
-        background-color: $gray800;
-        border: 2px solid $gray800;
-      }
-
-      &:checked::after {
-        content: "";
-        width: 8px;
-        height: 5px;
-        border-left: 2px solid $white;
-        border-bottom: 2px solid $white;
-        position: absolute;
-        transform: rotate(-50deg);
-        top: 20%;
-        left: 17%;
-      }
-    }
   }
 
   .results__found {

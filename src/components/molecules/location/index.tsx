@@ -1,9 +1,7 @@
 import styles from "./styles.module.scss";
-import { Location } from "../../interfaces/Location";
+import { Location as ILocation } from "../../../interfaces/Location";
 
-interface UnitProps extends Location {}
-
-export function Unit({
+export function Location({
   title,
   opened,
   content,
@@ -12,7 +10,7 @@ export function Unit({
   fountain,
   locker_room,
   schedules,
-}: UnitProps) {
+}: ILocation) {
   return (
     <li className={styles.unit}>
       <strong className={`${opened ? styles.open__unit : styles.closed__unit}`}>

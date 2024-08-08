@@ -1,7 +1,9 @@
-import { FormEvent, useRef, useState } from "react";
-import { Button } from "../button";
-import { Period } from "../period";
+import { Button } from "../../atoms/button";
+import { Period } from "../../molecules/period";
 import styles from "./styles.module.scss";
+import { Checkbox } from "../../atoms/checkbox";
+import { useForm } from "../../../hooks/useForm";
+import { LocationFilter } from "../../../interfaces/LocationsFilter";
 
 const periods = [
   {
@@ -18,33 +20,19 @@ const periods = [
   },
 ];
 
+
 interface FromProps {
   resultsFound: number;
-  handleClickToMeet: (data: { displayClosedUnits: boolean; period: string }) => void;
+  handleClickToMeet: (data: LocationFilter) => void;
   handleClickClear: () => void;
 }
 
 export function Form({ resultsFound, handleClickToMeet, handleClickClear }: FromProps) {
-  const [period, setPeriod] = useState("");
-  const [opened, setOpened] = useState(true);
-
-  const formRef = useRef<HTMLFormElement>(null);
-
-  function handleSubmit(ev: FormEvent) {
-    ev.preventDefault();
-
-    const payload = {
-      displayClosedUnits: opened,
-      period,
-    };
-
-    handleClickToMeet(payload);
-  }
+  const { setOpened, setPeriod, handleSubmit } = useForm(handleClickToMeet);
 
   return (
     <form
       className={styles.form}
-      ref={formRef}
       onSubmit={handleSubmit}
     >
       <div>
@@ -57,20 +45,16 @@ export function Form({ resultsFound, handleClickToMeet, handleClickClear }: From
       <h2>Qual periodo quer treinar?</h2>
       {periods.map((period) => (
         <Period
-          value={period.time}
           period={period.period}
           time={period.time}
           name="period"
-          onChange={(ev) => setPeriod(ev.target.value)}
+          value={period.time}
+          handleOnChange={(ev) => setPeriod(ev.target.value)}
         />
       ))}
       <div className={styles.units__filter}>
         <label>
-          <input
-            type="checkbox"
-            name="displayClosedUnits"
-            onChange={() => setOpened((prev) => !prev)}
-          />
+          <Checkbox onChange={() => setOpened((prev) => !prev)} />
           Exibir unidades fechadas
         </label>
         <span>

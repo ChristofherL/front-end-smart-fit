@@ -1,0 +1,22 @@
+@use "../../../styles/variables/index.scss" as *;
+
+.period {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 14px;
+  border-bottom: 2px solid $gray200;
+  cursor: pointer;
+
+  > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      color: $gray500;
+      font-family: "gotham-book";
+    }
+  }
+}
