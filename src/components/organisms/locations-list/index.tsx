@@ -10,10 +10,7 @@ export function LocationsList({ locations }: LocationsListProps) {
   return (
     <ul className={styles.locations__list}>
       {locations.map((location) => (
-        <Location
-          key={location.id}
-          {...location}
-        />
+        <Location key={window.crypto.randomUUID()} {...location} />
       ))}
     </ul>
   );

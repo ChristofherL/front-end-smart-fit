@@ -18,7 +18,7 @@ export function useLocations() {
   }, []);
 
   function handleClickToMeet(data: { displayClosedUnits: boolean; period: string }) {
-    setDisplayClosedUnits(data.displayClosedUnits);
+    // setDisplayClosedUnits(data.displayClosedUnits);
     setPeriod(data.period);
   }
 
