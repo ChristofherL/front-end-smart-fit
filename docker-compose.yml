@@ -1,5 +1,8 @@
 services: 
-  frontend: 
-    image: front-end-smart-fit:latest
+  app: 
+    image: christofherlucas/front-end-smart-fit:latest
     ports: 
       - "3000:3000"
+    volumes:
+       - .:/app
+       - /app/node_modules
