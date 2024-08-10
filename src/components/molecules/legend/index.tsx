@@ -62,14 +62,14 @@ const legendItems = [
 export function Legend() {
   return (
     <ul className={styles.legend}>
-      {legendItems.map((item) => (
-        <li>
+      {legendItems.map((item, itemIndex) => (
+        <li key={itemIndex}>
           <strong>{item.name}</strong>
           <ul className={styles.caption__images}>
-            {item.icons.map((i) => (
-              <li>
-                <img src={i.icon} />
-                <span>{i.description}</span>
+            {item.icons.map((icon, iconIndex) => (
+              <li key={iconIndex}>
+                <img src={icon.icon} />
+                <span>{icon.description}</span>
               </li>
             ))}
           </ul>

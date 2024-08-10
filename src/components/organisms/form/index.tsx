@@ -20,7 +20,6 @@ const periods = [
   },
 ];
 
-
 interface FromProps {
   resultsFound: number;
   handleClickToMeet: (data: LocationFilter) => void;
@@ -43,8 +42,9 @@ export function Form({ resultsFound, handleClickToMeet, handleClickClear }: From
         <span>Horário</span>
       </div>
       <h2>Qual periodo quer treinar?</h2>
-      {periods.map((period) => (
+      {periods.map((period, index) => (
         <Period
+          key={index}
           period={period.period}
           time={period.time}
           name="period"

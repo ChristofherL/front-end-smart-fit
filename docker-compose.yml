@@ -1,0 +1,5 @@
+services: 
+  frontend: 
+    image: front-end-smart-fit:latest
+    ports: 
+      - "3000:3000"

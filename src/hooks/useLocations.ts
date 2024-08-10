@@ -27,13 +27,10 @@ export function useLocations() {
     setDisplayClosedUnits(true);
   }
 
-  const resultsFound = locations.length;
-
   return {
     locations,
     handleClickToMeet,
     handleClickClear,
-    resultsFound,
     displayClosedUnits,
     period,
   };
