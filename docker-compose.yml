@@ -1,7 +1,7 @@
-services: 
-  app: 
+services:
+  app:
     image: christofherlucas/front-end-smart-fit:latest
-    ports: 
+    ports:
       - "3000:3000"
     volumes:
        - .:/app
