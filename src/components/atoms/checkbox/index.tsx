@@ -6,6 +6,7 @@ export function Checkbox({ ...rest }: ComponentProps<"input">) {
     <input
       className={styles.checkbox}
       type="checkbox"
+      data-testid="checkbox"
       {...rest}
     />
   );
