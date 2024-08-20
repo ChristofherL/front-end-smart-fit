@@ -1,7 +1,7 @@
 import { Button } from "../../atoms/button/button.component";
 import { Period } from "../../molecules/period";
 import styles from "./styles.module.scss";
-import { Checkbox } from "../../atoms/checkbox";
+import { Checkbox } from "../../atoms/checkbox/checkbox.component";
 import { useForm } from "../../../hooks/useForm";
 import { LocationFilter } from "../../../interfaces/LocationsFilter";
 

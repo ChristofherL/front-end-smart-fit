@@ -4,5 +4,5 @@ export * from "./organisms/legend";
 export * from "./molecules/location";
 export * from "./organisms/form";
 export * from "./organisms/locations-list";
-export * from "./atoms/radio";
-export * from "./atoms/checkbox";
+export * from "./atoms/radio/radio.component";
+export * from "./atoms/checkbox/checkbox.component";

@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { Radio } from "../../atoms/radio";
+import { Radio } from "../../atoms/radio/radio.component";
 import { ChangeEvent } from "react";
 
 interface PeriodProps {

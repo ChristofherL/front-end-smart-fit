@@ -6,6 +6,7 @@ export function Radio({ ...rest }: ComponentProps<"input">) {
     <input
       className={styles.radio}
       type="radio"
+      data-testid="radio"
       {...rest}
     />
   );

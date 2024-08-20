@@ -1,18 +1,18 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 import { describe, expect, it } from "vitest";
-import { Checkbox } from "./checkbox.component";
+import { Radio } from "./radio.component";
 
 describe("Checkbox component", () => {
   it("should be rendered correctly", () => {
-    render(<Checkbox />);
+    render(<Radio name="radio" />);
 
-    const checkbox = screen.getByTestId("checkbox");
+    const radio = screen.getByTestId("radio");
 
-    expect(checkbox).toBeInTheDocument();
+    expect(radio).toBeInTheDocument();
   });
 
   it("must match the snapshot", () => {
-    expect(<Checkbox />).toMatchFileSnapshot("./__snapshots__/checkbox.snapshot.html");
+    expect(<Radio />).toMatchFileSnapshot("./__snapshots__/radio.snapshot.html");
   });
 });
