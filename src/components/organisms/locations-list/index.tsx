@@ -9,8 +9,12 @@ interface LocationsListProps {
 export function LocationsList({ locations }: LocationsListProps) {
   return (
     <ul className={styles.locations__list}>
+      {!locations.length && <span>Nenhuma unidade encontrada</span>}
       {locations.map((location) => (
-        <Location key={window.crypto.randomUUID()} {...location} />
+        <Location
+          key={window.crypto.randomUUID()}
+          {...location}
+        />
       ))}
     </ul>
   );

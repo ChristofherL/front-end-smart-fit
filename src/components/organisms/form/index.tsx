@@ -22,12 +22,18 @@ const periods = [
 
 interface FromProps {
   resultsFound: number;
-  handleClickToMeet: (data: LocationFilter) => void;
-  handleClickClear: () => void;
+  handleFilter: (filter: LocationFilter) => void;
+  handleResetFilter: () => void;
 }
 
-export function Form({ resultsFound, handleClickToMeet, handleClickClear }: FromProps) {
-  const { setOpened, setPeriod, handleSubmit } = useForm(handleClickToMeet);
+export function Form({ resultsFound, handleFilter, handleResetFilter }: FromProps) {
+  const {
+    handleSubmit,
+    opened,
+    setOpened,
+    setPeriod,
+    period: selectedPeriod,
+  } = useForm(handleFilter);
 
   return (
     <form
@@ -44,17 +50,20 @@ export function Form({ resultsFound, handleClickToMeet, handleClickClear }: From
       <h2>Qual periodo quer treinar?</h2>
       {periods.map((period, index) => (
         <Period
+          checked={period.period === selectedPeriod}
           key={index}
           period={period.period}
           time={period.time}
           name="period"
-          value={period.time}
-          handleOnChange={(ev) => setPeriod(ev.target.value)}
+          handleOnChange={() => setPeriod(period.period)}
         />
       ))}
       <div className={styles.units__filter}>
         <label>
-          <Checkbox onChange={() => setOpened((prev) => !prev)} />
+          <Checkbox
+            onChange={() => setOpened((prev) => !prev)}
+            checked={opened}
+          />
           Exibir unidades fechadas
         </label>
         <span>
@@ -66,7 +75,11 @@ export function Form({ resultsFound, handleClickToMeet, handleClickClear }: From
         <Button
           variant="scondary"
           type="button"
-          onClick={handleClickClear}
+          onClick={() => {
+            handleResetFilter();
+            setOpened(false);
+            setPeriod("");
+          }}
         >
           Limpar
         </Button>

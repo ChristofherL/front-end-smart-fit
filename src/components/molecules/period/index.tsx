@@ -6,16 +6,16 @@ interface PeriodProps {
   period: string;
   time: string;
   name: string;
-  value: string;
+  checked: boolean;
   handleOnChange: (ev: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function Period({ period, time, name, value, handleOnChange }: PeriodProps) {
+export function Period({ period, time, name, handleOnChange, checked }: PeriodProps) {
   return (
     <label className={styles.period}>
       <Radio
         name={name}
-        value={value}
+        checked={checked}
         onChange={handleOnChange}
       />
       <div>

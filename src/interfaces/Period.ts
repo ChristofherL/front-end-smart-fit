@@ -1,4 +1,4 @@
 export interface Period {
-  init: number;
+  start: number;
   end: number;
 }

@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { Location } from "../interfaces/Location";
 import axios, { AxiosResponse } from "axios";
 import { SmartFitApiResponse } from "../interfaces/SmartFitApiResponse";
+import { extractHourFromString } from "../utils/extractHourFromString";
+import { filterLocations } from "../utils/filterLocations";
+import { LocationFilter } from "../interfaces/LocationsFilter";
 
 export function useLocations() {
   const [locations, setLocations] = useState<Location[]>([]);
-  const [displayClosedUnits, setDisplayClosedUnits] = useState(true);
   const [period, setPeriod] = useState("");
+  const [opened, setOpened] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -17,21 +20,30 @@ export function useLocations() {
     })();
   }, []);
 
-  function handleClickToMeet(data: { displayClosedUnits: boolean; period: string }) {
-    // setDisplayClosedUnits(data.displayClosedUnits);
-    setPeriod(data.period);
+  function handleFilter(filter: LocationFilter) {
+    setPeriod(filter.period);
+    setOpened(filter.opened);
   }
 
-  function handleClickClear() {
+  function handleResetFilter() {
     setPeriod("");
-    setDisplayClosedUnits(true);
+    setOpened(false);
+  }
+
+  const filteredLocations = filterLocations(locations, {
+    start: extractHourFromString(period, 0),
+    end: extractHourFromString(period, 1),
+  });
+
+  function filterOpenOrClosedUnits(locations: Location[], opened: boolean) {
+    return locations.filter((location) => (opened ? !location.opened : location));
   }
 
   return {
-    locations,
-    handleClickToMeet,
-    handleClickClear,
-    displayClosedUnits,
-    period,
+    locations: filterOpenOrClosedUnits(period ? filteredLocations : locations, opened),
+    handleFilter,
+    handleResetFilter,
+    opened,
+    setOpened,
   };
 }

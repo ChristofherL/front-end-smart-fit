@@ -1,4 +1,4 @@
 export interface LocationFilter {
-  displayClosedUnits: boolean;
+  opened: boolean;
   period: string;
 }
