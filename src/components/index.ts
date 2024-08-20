@@ -1,5 +1,5 @@
 export * from "./molecules/period";
-export * from "./atoms/button";
+export * from "./atoms/button/button.component";
 export * from "./organisms/legend";
 export * from "./molecules/location";
 export * from "./organisms/form";

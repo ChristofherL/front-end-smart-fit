@@ -1,4 +1,4 @@
-import { Button } from "../../atoms/button";
+import { Button } from "../../atoms/button/button.component";
 import { Period } from "../../molecules/period";
 import styles from "./styles.module.scss";
 import { Checkbox } from "../../atoms/checkbox";
